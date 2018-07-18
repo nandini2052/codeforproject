@@ -1,0 +1,20 @@
+
+<% obj.each do |house| %>
+   <div class = "jumbotron text-center">
+
+      <h4><%= link_to house.location, house_path(house) %></h4>
+      <p>Location:<%= house.location %></p>
+      <p>Rent:<%= house.Rent %></p>
+      <p>Description:<%= house.Description %></p>
+      <p>Address:<%= house.Address %></p>
+       
+      <td><%= link_to "[Edit]", edit_house_path(house) %></td>
+      <td><%= link_to "[Show]", house_path(house) %></td>
+      <td><%= link_to '[delete]', house_path(house), method: :delete, 
+                                 data: { confirm: "Are you sure?"} %></td>
+                                 <span class="quiet"><small>Created 
+
+        
+    
+</div>
+  <% end %>

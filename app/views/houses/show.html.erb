@@ -1,0 +1,18 @@
+<h1>Showing House Information</h1>
+
+<p>
+Location: <%= @house.location %>
+</p>
+<p>
+Rent: <%= @house.Rent %>
+</p>
+<p>
+Address: <%= @house.Address %>
+</p>
+<p>
+Description: <%= @house.Description %>
+</p>
+
+<%= link_to "Edit this house", edit_house_path(@house) %> |
+<%= link_to "Back to houses listing", houses_path %>
+
