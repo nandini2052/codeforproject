@@ -28,11 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 group :production do
-<<<<<<< HEAD
-  gem 'pg', '0.12.2'
-=======
   gem 'pg'
->>>>>>> Add precompiled assets for Heroku
 end
 
 gem 'test-unit'
