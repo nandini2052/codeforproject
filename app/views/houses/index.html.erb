@@ -1,9 +1,12 @@
 <h1> Listing all Houses </h1>
 <p>
   <%= link_to "Create a House", new_house_path %>
+  <%= link_to "Explore houses", new_house_path %>
 </p>
-
-  
-  
-
+<div align="center">
+<%= will_paginate %>
+</div>
 <%= render 'house', obj: @houses %>
+<div align="center">
+<%= will_paginate %>
+</div>

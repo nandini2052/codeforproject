@@ -1,0 +1,36 @@
+<% if @house.errors.any? %>
+<h2>The following errors prevented the house from being saved</h2>
+<ul>
+<% @house.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>
+<div class = "container jumbotron text-center">
+<h1> Enter your house information to sell </h1>
+
+<%= form_for(@house, :html => {class: "form-horizontal", role: "form"})  do |f| %>
+<p>
+  <%= f.label :Location%><br>
+  <%= f.text_field :location %>
+</p>
+<p>
+  <%= f.label :Rent %><br>
+  <%= f.text_field :Rent %>
+</p>
+<p>
+  <%= f.label :Address %><br>
+  <%= f.text_area :Address %>
+</p>
+<p>
+  <%= f.label :Description %><br>
+  <%= f.text_area :Description %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>
+<%= link_to "[Back to houses listing]", houses_path %>
+</div>

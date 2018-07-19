@@ -11,11 +11,13 @@
 
   <body>
     <%= render 'layouts/navigation' %>
-    <% flash.each do |name, msg| %>
-        <ul>
-        <li><%= msg %></li>
-        </ul>
-        <% end %>
+    <% if logged_in? %>
+    <p><%= link_to 'Log out', logout_path, method: :delete %></p>
+  <% else %>
+    <p><%= link_to 'Log in', login_path %></p>
+    <p><%= link_to 'Sign Up', signup_path %></p>
+    <% end %>
+  <%= render 'layouts/messages' %>
         <div class="container">
     <%= yield %>
   </div>

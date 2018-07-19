@@ -7,14 +7,13 @@
       <p>Rent:<%= house.Rent %></p>
       <p>Description:<%= house.Description %></p>
       <p>Address:<%= house.Address %></p>
-       
+      <p>Created <%= time_ago_in_words(house.created_at) %> ago</p>
+      <p>Updated <%= time_ago_in_words(house.updated_at) %> ago</p>
+      <% if logged_in? && (current_user == house.user || current_user.admin?) %>
       <td><%= link_to "[Edit]", edit_house_path(house) %></td>
-      <td><%= link_to "[Show]", house_path(house) %></td>
-      <td><%= link_to '[delete]', house_path(house), method: :delete, 
+      <td><%= link_to '[delete]', house_path(house), method: :delete,
                                  data: { confirm: "Are you sure?"} %></td>
-                                 <span class="quiet"><small>Created 
-
-        
-    
-</div>
+      <% end %>
+      <td><%= link_to "[Show]", house_path(house) %></td>
+    </div>
   <% end %>

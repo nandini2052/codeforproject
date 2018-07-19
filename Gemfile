@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
-gem 'carrierwave' 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
@@ -27,6 +26,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+
+
+gem 'test-unit'
+
+gem 'will_paginate', '3.1.5'
+
+gem 'bootstrap-will_paginate', '0.0.10'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

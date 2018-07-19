@@ -1,4 +1,4 @@
-<h1>Showing House Information</h1>
+<h1 align = 'center'>Showing House Information</h1>
 
 <p>
 Location: <%= @house.location %>
@@ -14,5 +14,6 @@ Description: <%= @house.Description %>
 </p>
 
 <%= link_to "Edit this house", edit_house_path(@house) %> |
+<%= link_to "Delete this article", house_path(@house), method: :delete,
+data: { confirm: "Are you sure you want to delete the article?"},class: "btn btn-xs btn-danger" %> |
 <%= link_to "Back to houses listing", houses_path %>
-
