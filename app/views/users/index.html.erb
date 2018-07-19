@@ -1,21 +1,22 @@
-<h1 align="center">All Alpha Bloggers</h1>
+<h1 align="center">Users Information</h1>
 <div align="center">
   <%= will_paginate %>
-<% @users.each do |user| %>
-   <div class = "jumbotron text-center">
-     <div class=" text-center ">
-
-            <p><%= link_to gravatar_for(user), user_path(user) %></p>
-            <p><%= link_to user.username, user_path(user) %></p>
-            <small><%= pluralize(user.houses.count, "house") if user.houses %></small>
-
-          <% if logged_in? && current_user.admin? %>
-           <p><%= link_to 'Delete this User', user_path(user), method: :delete, data: {confirm: "Are you surely wanna delete the house?"} %><p>
-          <% end %>
-        </div>
-
-
-    </div>
-<% end %>
-<%= will_paginate %>
+    <% if logged_in? %>
+      <% @users.each do |user| %>
+       <% if current_user.admin? || user.houses.count > 0 %>
+         <div class = "jumbotron text-center">
+           <div class=" text-center ">
+             <p><%= link_to gravatar_for(user), user_path(user) %></p>
+             <p><%= link_to user.username, user_path(user) %></p>
+             <small><%= pluralize(user.houses.count, "house") if user.houses %></small>
+             <% if current_user.admin? %>
+              <p><%= link_to 'Delete this User', user_path(user), method: :delete,
+              data: {confirm: "Are you surely wanna remove the user?"} %><p>
+             <% end %>
+           </div>
+         </div>
+       <% end %>
+      <% end %>
+    <% end %>
+  <%= will_paginate %>
 </div>

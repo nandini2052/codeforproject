@@ -57,7 +57,7 @@ class HousesController < ApplicationController
 private
 
  def house_params
- 	params.require(:house).permit(:location,:Rent,:Address, :Description)
+ 	params.require(:house).permit(:location,:Rent,:Address, :Description, :apartmentname)
  end
 
  def require_same_user

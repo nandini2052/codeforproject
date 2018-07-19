@@ -10,9 +10,9 @@
       <li class="nav-link">
       <p> <%= link_to "Houses", houses_path %><p>
       </li>
-      <% if  logged_in? && current_user.admin? %>
+      <% if  logged_in? %>
       <li class="nav-link">
-      <p> <%= link_to "Users", users_path %><p>
+      <p> <%= link_to "Sellers", users_path %><p>
       </li>
       <% end %>
       <li class="nav-item">

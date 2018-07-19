@@ -7,9 +7,13 @@
 </ul>
 <% end %>
 <div class = "container jumbotron text-center">
-<h1> Enter your house information to sell </h1>
+
 
 <%= form_for(@house, :html => {class: "form-horizontal", role: "form"})  do |f| %>
+<p>
+  <%= f.label :apartmentname %><br>
+  <%= f.text_field :apartmentname %>
+</p>
 <p>
   <%= f.label :Location%><br>
   <%= f.text_field :location %>

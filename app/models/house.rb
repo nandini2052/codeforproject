@@ -1,4 +1,5 @@
 class House <ApplicationRecord
+validates :apartmentname, presence: true
 validates :location, presence: true
 validates :Rent, presence: true
 validates :Address, presence: true
