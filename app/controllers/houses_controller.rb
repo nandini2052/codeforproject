@@ -23,6 +23,8 @@ class HousesController < ApplicationController
 
   def show
     @house = House.find(params[:id])
+    user = current_seller
+    ExampleMailer.sample_email(@house.user,user).deliver
   end
 
   def edit
@@ -70,11 +72,4 @@ private
  def house_params
  	params.require(:house).permit(:location,:Rent,:Address, :Description, :apartmentname)
  end
-
- def require_same_user
-      if current_user != @house.user && !current_user.admin?
-        flash[:danger] = "You can only edit or delete your own house details"
-        redirect_to root_path
-      end
-    end
 end
