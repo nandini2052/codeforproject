@@ -15,6 +15,15 @@
       <p> <%= link_to "Sellers", users_path %><p>
       </li>
       <% end %>
+      <%= form_tag(search_page_path, :method => "get",
+    class: 'navbar-form navbar-left') do %>
+  <div class="input-group">
+    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+    <div class="input-group-btn">
+      <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+    </div>
+  </div>
+<% end %>
       <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
       </li>

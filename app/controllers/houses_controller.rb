@@ -52,6 +52,17 @@ class HousesController < ApplicationController
     redirect_to houses_path
   end
 
+  def search
+    require_user
+    if params[:search].blank?
+    redirect_to(root_path, alert: "Empty field!") and return
+  else
+    @parameter = params[:search].downcase
+    @results = House.all.where("lower(location) LIKE :search", search: @parameter)
+  end
+
+  end
+
 
 
 private
