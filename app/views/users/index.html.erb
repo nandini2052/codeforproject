@@ -11,7 +11,7 @@
              <small><%= pluralize(user.houses.count, "house") if user.houses %></small>
              <% if current_user.admin? %>
               <p><%= link_to 'Delete this User', user_path(user), method: :delete,
-              data: {confirm: "Are you surely wanna remove the user?"} %><p>
+              data: {confirm: "Are you surely wanna remove the user?"},class: "btn btn-xs btn-danger" %><p>
              <% end %>
            </div>
          </div>

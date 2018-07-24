@@ -1,17 +1,33 @@
-<h1> Log in </h1>
+<h2 class="text-center">Login page</h2>
+<%= form_for(:session, :html => {class: "form-horizontal",
+                        role: "form"}, url: login_path) do |f| %>
+  <div class="form-group">
+    <div class="control-label col-md-2">
+      <%= f.label :email %>
+    </div>
+    <div class="col-md-8">
+      <%= f.email_field :email, class: "form-control",
+                            placeholder: "Enter your email" %>
+    </div>
+  </div>
 
-<%= form_for :session, url: login_path do |f| %>
-<p>
-	<%= f.label :email%> <br/>
-	<%= f.email_field :email%>
-</p>
-<p>
-	<%= f.label :password%> <br/>
-	<%= f.password_field :password%>
-</p>
-<p>
-	<%= f.submit "Log in" %>
-</p>
+  <div class="form-group">
+    <div class="control-label col-md-2">
+      <%= f.label :password %>
+    </div>
+    <div class="col-md-8">
+      <%= f.password_field :password, class: "form-control",
+                          placeholder: "Enter your password" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+    <%= f.submit "Log in", class: 'btn btn-primary ' %>
+    <%= link_to "New user?", signup_path,
+                                  class: "btn btn-primary  " %>
+    <%= link_to "Cancel request and return to houses listing",
+                            houses_path,class: "btn btn-primary  " %>
+    </div>
+  </div>
 <% end %>
-<p> New User? <%= link_to 'Sign Up', signup_path %> </p>
-<%= link_to 'Back to houses List', houses_path %>

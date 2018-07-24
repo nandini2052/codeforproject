@@ -2,9 +2,8 @@
 <p> User Information </p>
 <p>Mail Id:<%= @user.email %></p>
 <%= 'My other houses' if current_user == User.find(params[:id]) %>
-<%= 'His other houses' if current_user != User.find(params[:id]) %>
+<%= 'Other houses' if current_user != User.find(params[:id]) %>
  <%= render 'houses/house', obj: @user.houses %>
  <% if current_user == User.find(params[:id]) || current_user.admin? %>
  <p><%= link_to "Create new House Profiles", new_house_path %></p>
-
  <% end %>

@@ -1,14 +1,14 @@
 <% obj.each do |house| %>
    <div class = "jumbotron text-center">
-
       <h4><%= link_to house.apartmentname, house_path(house) %></h4>
       <p>Location:<%= house.location %></p>
       <p>Created <%= time_ago_in_words(house.created_at) %> ago</p>
       <p>Updated <%= time_ago_in_words(house.updated_at) %> ago</p>
       <% if logged_in? && (current_user == house.user || current_user.admin?) %>
-      <td><%= link_to "[Edit]", edit_house_path(house) %></td>
-      <td><%= link_to '[delete]', house_path(house), method: :delete,
-                                 data: { confirm: "Are you sure?"} %></td>
+      <td><%= link_to "Edit", edit_house_path(house), class: "btn btn-xs btn-warning" %></td>
+      <td><%= link_to 'Delete', house_path(house), method: :delete,
+                                 data: { confirm: "Are you sure to delete this house?"},class: "btn btn-xs btn-danger" %></td>
       <% end %>
-    </div>
-  <% end %>
+   </div>
+<% end %>
+  <%= link_to " [ Home ]", root_path %>
