@@ -1,9 +1,9 @@
-<h1 align = "center"> Listing all Houses </h1>
+<h1 align = "center"> Resulting filter Houses </h1>
 <p><%= link_to "Create a House", new_house_path %></p>
 <div align="center">
 <%= will_paginate %>
 </div>
-<%= render 'house', obj: @houses %>
+<%= render 'house', obj: @filtered_venues %>
 <div align="center">
 <%= will_paginate %>
 </div>

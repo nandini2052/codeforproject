@@ -9,6 +9,9 @@
       <td><%= link_to 'Delete', house_path(house), method: :delete,
                                  data: { confirm: "Are you sure to delete this house?"},class: "btn btn-xs btn-danger" %></td>
       <% end %>
+      <% if logged_in? && (current_user != house.user || current_user.admin?) %>
+      <td><%= link_to "Show Interest", interest_page_path(house), class: "btn btn-xs btn-primary" %></td>
+      <% end %>
    </div>
 <% end %>
   <%= link_to " [ Home ]", root_path %>

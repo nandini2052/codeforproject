@@ -1,2 +1,17 @@
 <h3>Search Result</h3>
+
+
+<ul>
+<form  action="/search/filter" class="filter_form", method="get">
+    <% @results.all.each do |a| %>
+    <li>
+      <%= check_box_tag("rent[]", a.Rent) %>
+      <%= a.Rent %>
+    </li>
+    <% end %>
+  <input type="hidden" id="place" name="place" value= "<%= params[:search] %>" >
+    <input type="submit" value="Filter" />
+  </form>
+</ul>
+
 <%= render 'house', obj: @results %>
