@@ -45,7 +45,6 @@ class HousesController < ApplicationController
   end
 
   def destroy
-
     @house.destroy
     flash[:notice] = "House is deleted successfully"
     redirect_to houses_path
@@ -53,18 +52,17 @@ class HousesController < ApplicationController
 
   def search
     if params[:search].blank?
-    redirect_to(root_path, alert: "Empty field!")
-   else
-    @parameter = params[:search].downcase
-    @results = House.all.where("lower(location) LIKE :search", search: @parameter)
-   end
-
+     redirect_to(root_path, alert: "Empty field!")
+    else
+     @parameter = params[:search].downcase
+     @results = House.all.where("lower(location) LIKE :search", search: @parameter)
+    end
   end
 
   def filter
       @parameter = params[:place].downcase
-      @filtered_venues = House.all.where("lower(location) LIKE :search", search: @parameter).where('Rent IN (?)', params[:rent])
-      #@results=filtered_venues.paginate(page: params[:page], per_page: 5)
+      filtered_venues = House.all.where("lower(location) LIKE :search", search: @parameter).where('Rent IN (?)', params[:rent])
+      @houses = filtered_venues.paginate(page: params[:page], per_page: 5)
   end
 
   def interest
