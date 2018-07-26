@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # attr_accessible :title, :body
   attr_accessor :reset_token
   has_many :houses, dependent: :destroy
-#  before_save {self.email = email.downcase}
+  before_save {self.email = email.downcase}
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   validates :username,
