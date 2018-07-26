@@ -1,23 +1,35 @@
-<h1 align = 'center'><%= @house.apartmentname %></h1>
+
+<div class = "show-page"
+<div class="container">
+      <div class="jumbotron mt-3" style="padding-top:5px" >
+			<b>	<h2 align = 'center' style = "padding-top:1px"><%= @house.apartmentname.upcase %></h2></b><hr/>
+				<div "col-md-offset-3 col-md-5">
+					<%= image_tag @house.photo,class: "house-photo" %>
+				</div>
 <p>
-Location: <%= @house.location %>
+			<b>	Location: <%= @house.location.capitalize %></b>
 </p>
-<p>
-Rent: <%= @house.Rent %>
-</p>
-<p>
-Address: <%= @house.Address %>
-</p>
-<p>
-Description: <%= @house.Description %>
-</p>
-<% if logged_in? && (current_user == @house.user || current_user.admin?) %>
-  <%= link_to "Edit this house", edit_house_path(@house),class: "btn btn-xs btn-warning" %> |
-  <%= link_to "Delete this house", house_path(@house), method: :delete,
-  data: { confirm: "Are you sure you want to delete the article?"},class: "btn btn-xs btn-danger" %> |
-<% end %>
-<% if logged_in? && (current_user != @house.user || current_user.admin?) %>
-<td><%= link_to "Show Interest", interest_page_path(@house), class: "btn btn-xs btn-primary" %></td>
-<% end %>
-<%= link_to "Back to houses listing", houses_path, class: "btn btn-xs btn-primary" %> |
-<%= link_to "Contact info", user_path(@house.user_id), class: "btn btn-xs btn-primary" %>
+				<p>
+			<b>	Rent: <%= @house.Rent %> </b>
+				</p>
+				<p>
+			<b>	Address: <%= @house.Address %> </b>
+				</p>
+				<p>
+			<b>	Description: <%= @house.Description %> </b>
+				</p>
+
+			<p>	<% if logged_in? && (current_user == @house.user || current_user.admin?) %>
+				  <%= link_to "Edit this house", edit_house_path(@house),class: "btn btn-xs btn-warning" %> |
+				  <%= link_to "Delete this house", house_path(@house), method: :delete,
+				  data: { confirm: "Are you sure you want to delete the article?"},class: "btn btn-xs btn-danger" %> |
+				<% end %>
+				<% if logged_in? && (current_user != @house.user || current_user.admin?) %>
+				<td><%= link_to "Show Interest", interest_page_path(@house), class: "btn btn-xs btn-primary" %></td> |
+				<% end %>
+				<%= link_to "Back to houses listing", houses_path, class: "btn btn-xs btn-primary" %> |
+				<%= link_to "Contact info", user_path(@house.user_id), class: "btn btn-xs btn-primary" %>
+			</p>
+			      </div>
+    </div>
+  </div>

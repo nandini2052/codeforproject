@@ -6,35 +6,68 @@
 <% end %>
 </ul>
 <% end %>
-<div class = "container jumbotron text-center">
-
-
+<div class = "container jumbotron text-center" style="padding-top:5px">
+<div class="col-md-offset-3 col-md-6">
+  <h2> Enter your house information to sell </h2><br/>
 <%= form_for(@house, :html => {class: "form-horizontal", role: "form"})  do |f| %>
-<p>
-  <%= f.label :apartmentname %><br>
-  <%= f.text_field :apartmentname %>
-</p>
-<p>
-  <%= f.label :Location%><br>
-  <%= f.text_field :location %>
-</p>
-<p>
-  <%= f.label :Rent %><br>
-  <%= f.text_field :Rent %>
-</p>
-<p>
-  <%= f.label :Address %><br>
-  <%= f.text_area :Address %>
-</p>
-<p>
-  <%= f.label :Description %><br>
-  <%= f.text_area :Description %>
-</p>
+<div class="form-group">
+        <div class="control-label col-md-3" style="text-align:left">
+          <%= f.label :apartmentname%>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :apartmentname, class: "form-control",
+          placeholder: "Enter your apartment name", autofocus: true %>
+        </div>
+      </div>
+       <div class="form-group">
+        <div class="control-label col-md-3" style="text-align:left">
+          <%= f.label :Location %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :location, class: "form-control",
+          placeholder: "Enter your location" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-3" style="text-align:left">
+          <%= f.label :Rent %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :Rent, class: "form-control",
+          placeholder: "Enter rent of the house" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-3" style="text-align:left">
+          <%= f.label :Address %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_area :Address, class: "form-control",
+          placeholder: "Enter the complete address" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-3" style="text-align:left">
+          <%= f.label :Description %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_area :Description, class: "form-control",
+          placeholder: "Enter short description of your house (ex: BHK, Gym, Swimming pool etc.,)"%>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-3" style="text-align:left">
+       <%= f.label :photo %>
+     </div>
+     <div class="col-md-8">
+      <%= f.file_field :photo %>
+      </div>
+      </div>
 
-<p>
-  <%= f.submit %>
-</p>
 
-<% end %>
-<%= link_to "[Back to houses listing]", houses_path %>
+  <%= f.submit "post your house", class: "btn btn-primary" %>
+
+  <%= link_to "Back to houses listing", houses_path, class: "btn btn-primary" %>
+  <% end %>
+</div>
 </div>

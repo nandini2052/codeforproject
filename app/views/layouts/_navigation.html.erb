@@ -38,17 +38,16 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header" >
 
-      <%= link_to "Myhome", root_path, class: "navbar-brand", id: "logo" %>
+      <%= link_to "Home", root_path, class: "navbar-brand", id: "logo" %>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
 
         <ul class="nav navbar-nav">
-          <li><%= link_to "All Houses", houses_path %></li>
+          <li><%= link_to "Buy a House", houses_path %></li>
+          <li><%= link_to "Sell a House", new_house_path %></li>
           <% if logged_in? %>
            <li><%= link_to "Sellers", users_path %></li>
-           <li><%= link_to "Create a new house", new_house_path %></li>
-
-          <% end %>
+        <% end %>
         </ul>
       <!--  <form class="navbar-form navbar-left">
           <div class="form-group">

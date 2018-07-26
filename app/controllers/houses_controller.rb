@@ -86,6 +86,6 @@ private
  end
 
  def house_params
- 	params.require(:house).permit(:location,:Rent,:Address, :Description, :apartmentname)
+ 	params.require(:house).permit(:location,:Rent,:Address, :Description, :apartmentname, :photo)
  end
 end

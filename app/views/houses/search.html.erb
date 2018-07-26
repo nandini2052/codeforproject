@@ -1,20 +1,20 @@
-<h1 align= "center">Search Result</h1>
+<h1 align= "center">Showing houses in <%= params[:search].capitalize %>.....</h1>
   <% if @results.blank? %>
    <h2 align= "center"> No Houses available for rent in the location you entered .... </h2>
    <h3 align= "center"> Enter other locations to explore .... </h3>
    <p align ="center"><%= link_to "[ Home ]", root_path %></p>
   <% else %>
-   <ul>
+
      <form  action="/search/filter" class="filter_form", method="get">
        <% @results.all.each do |a| %>
-       <li>
+
          <%= check_box_tag("rent[]", a.Rent) %>
          <%= a.Rent %>
-       </li>
+
        <% end %>
        <input type="hidden" id="place" name="place" value= "<%= params[:search] %>" >
        <input type="submit" value="Filter" />
      </form>
-   </ul>
+<br/>
    <%= render 'house', obj: @results %>
    <% end %>

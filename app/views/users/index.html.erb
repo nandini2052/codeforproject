@@ -7,7 +7,7 @@
          <div class = "jumbotron text-center">
            <div class=" text-center ">
              <p><%= link_to gravatar_for(user), user_path(user) %></p>
-             <p><%= link_to user.username, user_path(user) %></p>
+             <p><%= link_to user.username.capitalize, user_path(user) %></p>
              <small><%= pluralize(user.houses.count, "house") if user.houses %></small>
              <% if current_user.admin? %>
               <p><%= link_to 'Delete this User', user_path(user), method: :delete,

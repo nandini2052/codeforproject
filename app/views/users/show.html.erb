@@ -1,7 +1,7 @@
-<h4 align="center"><%= @user.username %></h4>
-<p> User Information </p>
-<p>Mail Id:<%= @user.email %></p>
-<%= 'My other houses' if current_user == User.find(params[:id]) %>
+<h2 align="center"><%= @user.username.capitalize %></h2>
+<h3> User Information </h3>
+<b><p>Email-id : <%= @user.email %></p></b>
+<%= 'My houses' if current_user == User.find(params[:id])  %>
 <%= 'Other houses' if current_user != User.find(params[:id]) %>
  <%= render 'houses/house', obj: @user.houses %>
  <% if current_user == User.find(params[:id]) || current_user.admin? %>
